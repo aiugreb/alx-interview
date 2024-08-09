@@ -1,28 +1,19 @@
 #!/usr/bin/python3
-
 """
-    method that calculates the fewest number of operations needed to result in exactly n H
+Method that calculates the fewest number of operations needed to result in exactly n H
 """
 
 
 def minOperations(n):
     """
-        A function gives a result of exactly n H characters in a file
-        args: n: Number of characters to be displayed
-        return:
-               number of min operations
+    Function minOperations
+    Returns an integer
     """
-
-    chars_in_file = 1
-    no_of_times_copied = 0  # how many times chars (H's) copied
-    counter = 0  # operations counter
-    while chars_in_file < n:
-        remainder = n - chars_in_file
-        if (remainder % chars_in_file == 0):
-            no_of_times_copied = chars_in_file
-            chars_in_file += no_of_times_copied
-            counter += 2
-        else:
-            chars_in_file += no_of_times_copied
-            counter += 1
-    return counter
+    result = 0
+    x = 2
+    while n > 1:
+        while n % x == 0:
+            result += x
+            n /= x
+        x += 1
+    return result
